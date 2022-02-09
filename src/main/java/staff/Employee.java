@@ -22,4 +22,12 @@ public abstract class Employee {
     public double getSalary() {
         return salary;
     }
+
+    public void raiseSalary(double amount) {
+        this.salary += amount;
+    }
+
+    public double payBonus() {
+        return this.salary * 1 / 100;
+    }
 }
