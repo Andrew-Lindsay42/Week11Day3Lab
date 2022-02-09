@@ -3,7 +3,7 @@ package techStaff;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class DeveloperTest {
 
@@ -32,8 +32,13 @@ public class DeveloperTest {
 
     @Test
     public void canRaiseSalary(){
-        developer.raiseSalary(150.0);
+        assertTrue(developer.raiseSalary(150.0));
         assertEquals(650.0, developer.getSalary(), 0.0);
+    }
+
+    @Test
+    public void preventNegativeRaiseSalary() {
+        assertFalse(developer.raiseSalary(-500));
     }
 
     @Test

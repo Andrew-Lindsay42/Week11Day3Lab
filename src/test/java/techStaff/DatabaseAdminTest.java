@@ -3,7 +3,7 @@ package techStaff;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class DatabaseAdminTest {
 
@@ -31,9 +31,14 @@ public class DatabaseAdminTest {
     }
 
     @Test
-    public void canRaiseSalary() {
-        dbAdmin.raiseSalary(150.0);
+    public void canRaiseSalary(){
+        assertTrue(dbAdmin.raiseSalary(150.0));
         assertEquals(650.0, dbAdmin.getSalary(), 0.0);
+    }
+
+    @Test
+    public void preventNegativeRaiseSalary() {
+        assertFalse(dbAdmin.raiseSalary(-500));
     }
 
     @Test

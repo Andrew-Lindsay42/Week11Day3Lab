@@ -3,7 +3,7 @@ package management;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class ManagerTest {
     Manager manager;
@@ -35,8 +35,13 @@ public class ManagerTest {
 
     @Test
     public void canRaiseSalary() {
-        manager.raiseSalary(50.00);
+        assertTrue(manager.raiseSalary(50.00));
         assertEquals(150.00, manager.getSalary(), 0.0);
+    }
+
+    @Test
+    public void preventNegativeRaiseSalary() {
+        assertFalse(manager.raiseSalary(-20));
     }
 
     @Test

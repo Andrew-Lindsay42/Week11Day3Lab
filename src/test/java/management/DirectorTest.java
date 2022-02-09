@@ -3,7 +3,7 @@ package management;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class DirectorTest {
     Director director;
@@ -35,8 +35,13 @@ public class DirectorTest {
 
     @Test
     public void canRaiseSalary() {
-        director.raiseSalary(50.00);
+        assertTrue(director.raiseSalary(50.00));
         assertEquals(150.00, director.getSalary(), 0.0);
+    }
+
+    @Test
+    public void preventNegativeRaiseSalary() {
+        assertFalse(director.raiseSalary(-1));
     }
 
     @Test
